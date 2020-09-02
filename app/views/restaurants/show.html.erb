@@ -1,0 +1,22 @@
+<div class="card" style="width: 30rem;">
+  <img class="card-img-top" src="https://source.unsplash.com/collection/190727/1600x900" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong><%= @restaurant.name %></strong></h5>
+    <p class="card-title"><%= @restaurant.address %></p>
+    <p class="card-title"><%= @restaurant.category %></p>
+    <h6 class="card-title"><%= @restaurant.phone_number %></h6>
+    
+    <p class="card-text"></p>
+    <%= link_to 'back', restaurants_path, class:"btn btn-primary" %>
+    <%= link_to 'review', new_restaurant_review_path(@restaurant), class:"btn btn-primary" %>
+  </div>
+
+  <div class="reviews">
+ <% @restaurant.reviews.each do |review|  %>
+   <div class="card-body">
+   <p><%=review.rating %> </p>
+   <p><%=review.content%> </p>
+   </div>
+  <% end %>
+  </div>
+</div>
